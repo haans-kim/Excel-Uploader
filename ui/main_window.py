@@ -50,8 +50,7 @@ class MainWindow(ctk.CTk):
         sidebar = ctk.CTkFrame(
             self,
             width=Styles.SIDEBAR_WIDTH,
-            corner_radius=0,
-            fg_color=Colors.BG_SECONDARY
+            corner_radius=0
         )
 
         # Top section with title and theme toggle
@@ -62,8 +61,7 @@ class MainWindow(ctk.CTk):
         title = ctk.CTkLabel(
             top_frame,
             text="SQLite\nManager",
-            font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_XL, "bold"),
-            text_color=Colors.TEXT_PRIMARY
+            font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_XL, "bold")
         )
         title.pack()
 
@@ -71,21 +69,20 @@ class MainWindow(ctk.CTk):
         self.theme_mode = "dark"
         self.theme_btn = ctk.CTkButton(
             sidebar,
-            text="☀ Light Mode",
+            text="Light Mode",
             width=160,
             height=Styles.BUTTON_HEIGHT_SM,
             corner_radius=Styles.CORNER_RADIUS,
-            fg_color=Colors.BG_TERTIARY,
-            hover_color=Colors.BORDER,
-            command=self.toggle_theme
+            command=self.toggle_theme,
+            fg_color=("gray75", "gray25"),
+            hover_color=("gray65", "gray35")
         )
         self.theme_btn.pack(padx=Styles.PADDING, pady=(0, 20))
 
         # Separator
         separator = ctk.CTkFrame(
             sidebar,
-            height=1,
-            fg_color=Colors.BORDER
+            height=1
         )
         separator.pack(fill="x", padx=Styles.PADDING, pady=(0, 20))
 
@@ -93,8 +90,7 @@ class MainWindow(ctk.CTk):
         section_label = ctk.CTkLabel(
             sidebar,
             text="DATABASE",
-            font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_XS, "bold"),
-            text_color=Colors.TEXT_MUTED
+            font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_XS, "bold")
         )
         section_label.pack(padx=Styles.PADDING, pady=(0, 10), anchor="w")
 
@@ -111,11 +107,10 @@ class MainWindow(ctk.CTk):
                 command=command,
                 height=Styles.BUTTON_HEIGHT,
                 corner_radius=Styles.CORNER_RADIUS,
-                fg_color=Colors.BG_TERTIARY,
-                hover_color=Colors.BORDER,
-                text_color=Colors.TEXT_PRIMARY,
                 anchor="w",
-                font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_BASE)
+                font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_BASE),
+                fg_color=("gray75", "gray25"),
+                hover_color=("gray65", "gray35")
             )
             btn.pack(padx=Styles.PADDING, pady=5, fill="x")
 
@@ -123,8 +118,7 @@ class MainWindow(ctk.CTk):
         section_label2 = ctk.CTkLabel(
             sidebar,
             text="ACTIONS",
-            font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_XS, "bold"),
-            text_color=Colors.TEXT_MUTED
+            font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_XS, "bold")
         )
         section_label2.pack(padx=Styles.PADDING, pady=(20, 10), anchor="w")
 
@@ -141,11 +135,10 @@ class MainWindow(ctk.CTk):
                 command=command,
                 height=Styles.BUTTON_HEIGHT,
                 corner_radius=Styles.CORNER_RADIUS,
-                fg_color=Colors.BG_TERTIARY,
-                hover_color=Colors.BORDER,
-                text_color=Colors.TEXT_PRIMARY,
                 anchor="w",
-                font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_BASE)
+                font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_BASE),
+                fg_color=("gray75", "gray25"),
+                hover_color=("gray65", "gray35")
             )
             btn.pack(padx=Styles.PADDING, pady=5, fill="x")
 
@@ -160,10 +153,7 @@ class MainWindow(ctk.CTk):
         # Welcome card
         welcome_card = ctk.CTkFrame(
             self.main_content,
-            corner_radius=Styles.CORNER_RADIUS_LG,
-            fg_color=Colors.BG_SECONDARY,
-            border_width=Styles.BORDER_WIDTH,
-            border_color=Colors.BORDER
+            corner_radius=Styles.CORNER_RADIUS_LG
         )
         welcome_card.pack(expand=True, fill="both")
 
@@ -176,15 +166,14 @@ class MainWindow(ctk.CTk):
             center_frame,
             text="DB",
             font=(Styles.FONT_FAMILY, 64, "bold"),
-            text_color=Colors.ACCENT
+            text_color="#1e3a8a"  # navy blue
         )
         title.pack(pady=(0, 20))
 
         subtitle = ctk.CTkLabel(
             center_frame,
             text="SQLite Manager",
-            font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_2XL, "bold"),
-            text_color=Colors.TEXT_PRIMARY
+            font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_2XL, "bold")
         )
         subtitle.pack(pady=(0, 10))
 
@@ -192,7 +181,6 @@ class MainWindow(ctk.CTk):
             center_frame,
             text="Manage SQLite databases and upload Excel files\nwith a clean, modern interface",
             font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_BASE),
-            text_color=Colors.TEXT_SECONDARY,
             justify="center"
         )
         description.pack(pady=(0, 30))
@@ -207,8 +195,8 @@ class MainWindow(ctk.CTk):
             command=self.open_database,
             height=Styles.BUTTON_HEIGHT_LG,
             corner_radius=Styles.CORNER_RADIUS,
-            fg_color=Colors.ACCENT,
-            hover_color=Colors.ACCENT_HOVER,
+            fg_color=("#1e3a8a", "#1e40af"),  # navy blue (dark blue-900/800)
+            hover_color=("#1e40af", "#1e3a8a"),
             font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_BASE, "bold"),
             width=150
         )
@@ -220,10 +208,10 @@ class MainWindow(ctk.CTk):
             command=self.create_database,
             height=Styles.BUTTON_HEIGHT_LG,
             corner_radius=Styles.CORNER_RADIUS,
-            fg_color=Colors.BG_TERTIARY,
-            hover_color=Colors.BORDER,
             font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_BASE),
-            width=150
+            width=150,
+            fg_color=("gray75", "gray25"),
+            hover_color=("gray65", "gray35")
         )
         new_btn.pack(side="left", padx=5)
 
@@ -357,12 +345,12 @@ class MainWindow(ctk.CTk):
             # Switch to light mode
             self.theme_mode = "light"
             ctk.set_appearance_mode("light")
-            self.theme_btn.configure(text="🌙 Dark Mode")
+            self.theme_btn.configure(text="Dark Mode")
         else:
             # Switch to dark mode
             self.theme_mode = "dark"
             ctk.set_appearance_mode("dark")
-            self.theme_btn.configure(text="☀ Light Mode")
+            self.theme_btn.configure(text="Light Mode")
 
     def browse_tables(self):
         """Browse database tables"""
