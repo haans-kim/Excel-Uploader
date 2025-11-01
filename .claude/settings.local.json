@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(rm:*)",
+      "Bash(python -m venv:*)",
+      "Bash(venv/Scripts/pip install:*)",
+      "Bash(venv/Scripts/python:*)",
+      "Bash(tasklist:*)",
+      "Bash(findstr:*)",
+      "Bash(taskkill:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nInitial commit: SQLite Manager with full features\n\nFeatures implemented:\n- Database management (open/create/browse)\n- Table management (create/delete/export)\n- Data viewing with pagination, search, and sorting\n- Excel upload with multi-sheet support\n- Modern shadcn/ui inspired dark/light theme\n- Context menus and modal dialogs\n\nComponents:\n- Main window with sidebar navigation\n- Database selector with recent databases\n- Table list with TreeView\n- Table browser with search/sort/pagination\n- Table creator with schema designer\n- Excel uploader with progress tracking\n\nTech stack:\n- Python + CustomTkinter\n- SQLite + pandas + openpyxl\n- Minimal overhead (~30MB, ~0.5s startup)\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(gh --version:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
