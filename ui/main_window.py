@@ -61,7 +61,8 @@ class MainWindow(ctk.CTk):
         title = ctk.CTkLabel(
             top_frame,
             text="SQLite\nManager",
-            font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_XL, "bold")
+            font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_XL, "bold"),
+            text_color=("gray10", "gray90")
         )
         title.pack()
 
@@ -75,7 +76,8 @@ class MainWindow(ctk.CTk):
             corner_radius=Styles.CORNER_RADIUS,
             command=self.toggle_theme,
             fg_color=("gray75", "gray25"),
-            hover_color=("gray65", "gray35")
+            hover_color=("gray65", "gray35"),
+            text_color=("gray10", "gray90")
         )
         self.theme_btn.pack(padx=Styles.PADDING, pady=(0, 20))
 
@@ -90,7 +92,8 @@ class MainWindow(ctk.CTk):
         section_label = ctk.CTkLabel(
             sidebar,
             text="DATABASE",
-            font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_XS, "bold")
+            font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_XS, "bold"),
+            text_color=("gray10", "gray90")
         )
         section_label.pack(padx=Styles.PADDING, pady=(0, 10), anchor="w")
 
@@ -110,7 +113,8 @@ class MainWindow(ctk.CTk):
                 anchor="w",
                 font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_BASE),
                 fg_color=("gray75", "gray25"),
-                hover_color=("gray65", "gray35")
+                hover_color=("gray65", "gray35"),
+                text_color=("gray10", "gray90")
             )
             btn.pack(padx=Styles.PADDING, pady=5, fill="x")
 
@@ -118,7 +122,8 @@ class MainWindow(ctk.CTk):
         section_label2 = ctk.CTkLabel(
             sidebar,
             text="ACTIONS",
-            font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_XS, "bold")
+            font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_XS, "bold"),
+            text_color=("gray10", "gray90")
         )
         section_label2.pack(padx=Styles.PADDING, pady=(20, 10), anchor="w")
 
@@ -138,7 +143,8 @@ class MainWindow(ctk.CTk):
                 anchor="w",
                 font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_BASE),
                 fg_color=("gray75", "gray25"),
-                hover_color=("gray65", "gray35")
+                hover_color=("gray65", "gray35"),
+                text_color=("gray10", "gray90")
             )
             btn.pack(padx=Styles.PADDING, pady=5, fill="x")
 
@@ -173,7 +179,8 @@ class MainWindow(ctk.CTk):
         subtitle = ctk.CTkLabel(
             center_frame,
             text="SQLite Manager",
-            font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_2XL, "bold")
+            font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_2XL, "bold"),
+            text_color=("gray10", "gray90")
         )
         subtitle.pack(pady=(0, 10))
 
@@ -181,7 +188,8 @@ class MainWindow(ctk.CTk):
             center_frame,
             text="Manage SQLite databases and upload Excel files\nwith a clean, modern interface",
             font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_BASE),
-            justify="center"
+            justify="center",
+            text_color=("gray20", "gray80")
         )
         description.pack(pady=(0, 30))
 
@@ -198,7 +206,8 @@ class MainWindow(ctk.CTk):
             fg_color=("#1e3a8a", "#1e40af"),  # navy blue (dark blue-900/800)
             hover_color=("#1e40af", "#1e3a8a"),
             font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_BASE, "bold"),
-            width=150
+            width=150,
+            text_color=("white", "white")
         )
         open_btn.pack(side="left", padx=5)
 
@@ -211,7 +220,8 @@ class MainWindow(ctk.CTk):
             font=(Styles.FONT_FAMILY, Styles.FONT_SIZE_BASE),
             width=150,
             fg_color=("gray75", "gray25"),
-            hover_color=("gray65", "gray35")
+            hover_color=("gray65", "gray35"),
+            text_color=("gray10", "gray90")
         )
         new_btn.pack(side="left", padx=5)
 

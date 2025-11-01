@@ -4,27 +4,27 @@ UI Styles - shadcn/ui inspired design system
 
 
 class Colors:
-    """Color palette based on shadcn/ui zinc theme (dark mode)"""
+    """Color palette based on shadcn/ui zinc theme (light/dark mode)"""
 
-    # Background colors
-    BG_PRIMARY = "#09090b"      # zinc-950
-    BG_SECONDARY = "#18181b"    # zinc-900
-    BG_TERTIARY = "#27272a"     # zinc-800
-    BG_MUTED = "#3f3f46"        # zinc-700
+    # Background colors (light, dark)
+    BG_PRIMARY = ("#f4f4f5", "#09090b")      # zinc-100, zinc-950
+    BG_SECONDARY = ("#e4e4e7", "#18181b")    # zinc-200, zinc-900
+    BG_TERTIARY = ("#d4d4d8", "#27272a")     # zinc-300, zinc-800
+    BG_MUTED = ("#a1a1aa", "#3f3f46")        # zinc-400, zinc-700
 
-    # Border colors
-    BORDER = "#3f3f46"          # zinc-700
-    BORDER_LIGHT = "#52525b"    # zinc-600
+    # Border colors (light, dark)
+    BORDER = ("#d4d4d8", "#3f3f46")          # zinc-300, zinc-700
+    BORDER_LIGHT = ("#e4e4e7", "#52525b")    # zinc-200, zinc-600
 
-    # Text colors
-    TEXT_PRIMARY = "#fafafa"    # zinc-50
-    TEXT_SECONDARY = "#a1a1aa"  # zinc-400
-    TEXT_MUTED = "#71717a"      # zinc-500
+    # Text colors (light, dark) - 라이트 모드에서는 어두운 텍스트
+    TEXT_PRIMARY = ("#09090b", "#fafafa")    # zinc-950, zinc-50
+    TEXT_SECONDARY = ("#52525b", "#a1a1aa")  # zinc-600, zinc-400
+    TEXT_MUTED = ("#71717a", "#71717a")      # zinc-500, zinc-500
 
-    # Accent colors (blue)
-    ACCENT = "#3b82f6"          # blue-500
-    ACCENT_HOVER = "#2563eb"    # blue-600
-    ACCENT_LIGHT = "#60a5fa"    # blue-400
+    # Accent colors (blue) - 양쪽 모두 navy blue 사용
+    ACCENT = ("#1e3a8a", "#3b82f6")          # navy, blue-500
+    ACCENT_HOVER = ("#1e40af", "#2563eb")    # navy-light, blue-600
+    ACCENT_LIGHT = ("#3b82f6", "#60a5fa")    # blue-500, blue-400
 
     # Status colors
     SUCCESS = "#22c55e"         # green-500
