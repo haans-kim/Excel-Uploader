@@ -18,7 +18,8 @@
       "Bash(./build-minimal.bat)",
       "Bash(./build-cx-freeze.bat)",
       "Bash(awk:*)",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
