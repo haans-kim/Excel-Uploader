@@ -231,7 +231,7 @@ class TableBrowser(ctk.CTkFrame):
             cursor = conn.cursor()
 
             # Get column names
-            cursor.execute(f"PRAGMA table_info({self.table_name})")
+            cursor.execute(f"PRAGMA table_info([{self.table_name}])")
             columns_info = cursor.fetchall()
             self.columns = [col[1] for col in columns_info]
 
@@ -246,9 +246,9 @@ class TableBrowser(ctk.CTkFrame):
                 self.tree.column(col, width=120, minwidth=80)
 
             # Get total row count (with search filter if applied)
-            count_query = f"SELECT COUNT(*) FROM {self.table_name}"
+            count_query = f"SELECT COUNT(*) FROM [{self.table_name}]"
             if self.search_text:
-                where_clauses = [f"{col} LIKE ?" for col in self.columns]
+                where_clauses = [f"[{col}] LIKE ?" for col in self.columns]
                 count_query += f" WHERE {' OR '.join(where_clauses)}"
                 search_params = [f"%{self.search_text}%"] * len(self.columns)
                 cursor.execute(count_query, search_params)
@@ -279,18 +279,18 @@ class TableBrowser(ctk.CTkFrame):
             offset = self.current_page * self.rows_per_page
 
             # Build query with search and sort
-            query = f"SELECT * FROM {self.table_name}"
+            query = f"SELECT * FROM [{self.table_name}]"
             params = []
 
             # Add WHERE clause for search
             if self.search_text:
-                where_clauses = [f"{col} LIKE ?" for col in self.columns]
+                where_clauses = [f"[{col}] LIKE ?" for col in self.columns]
                 query += f" WHERE {' OR '.join(where_clauses)}"
                 params = [f"%{self.search_text}%"] * len(self.columns)
 
             # Add ORDER BY clause for sorting
             if self.sort_column:
-                query += f" ORDER BY {self.sort_column} {self.sort_order}"
+                query += f" ORDER BY [{self.sort_column}] {self.sort_order}"
 
             # Add LIMIT and OFFSET
             query += " LIMIT ? OFFSET ?"
@@ -406,7 +406,7 @@ class TableBrowser(ctk.CTkFrame):
             # Read all table data (not just current page)
             db = DatabaseManager(self.db_path)
             conn = db.get_connection()
-            df = pd.read_sql_query(f"SELECT * FROM {self.table_name}", conn)
+            df = pd.read_sql_query(f"SELECT * FROM [{self.table_name}]", conn)
 
             # Export based on file extension
             if filename.endswith('.csv'):

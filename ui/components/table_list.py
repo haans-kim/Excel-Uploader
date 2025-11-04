@@ -177,12 +177,12 @@ class TableList(ctk.CTkFrame):
             # Add each table
             for (table_name,) in tables:
                 # Get column count
-                cursor.execute(f"PRAGMA table_info({table_name})")
+                cursor.execute(f"PRAGMA table_info([{table_name}])")
                 column_count = len(cursor.fetchall())
 
                 # Get row count
                 try:
-                    cursor.execute(f"SELECT COUNT(*) FROM {table_name}")
+                    cursor.execute(f"SELECT COUNT(*) FROM [{table_name}]")
                     row_count = cursor.fetchone()[0]
                     row_str = f"{row_count:,}"
                 except:
@@ -272,7 +272,7 @@ class TableList(ctk.CTkFrame):
             # Read table data
             db = DatabaseManager(self.db_path)
             conn = db.get_connection()
-            df = pd.read_sql_query(f"SELECT * FROM {table_name}", conn)
+            df = pd.read_sql_query(f"SELECT * FROM [{table_name}]", conn)
 
             # Export based on file extension
             if filename.endswith('.csv'):
@@ -311,7 +311,7 @@ class TableList(ctk.CTkFrame):
             db = DatabaseManager(self.db_path)
             conn = db.get_connection()
             cursor = conn.cursor()
-            cursor.execute(f"DROP TABLE {table_name}")
+            cursor.execute(f"DROP TABLE [{table_name}]")
             conn.commit()
 
             messagebox.showinfo("Success", f"Table '{table_name}' deleted successfully!")
